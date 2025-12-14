@@ -1,4 +1,4 @@
-#include "passcheck.h"
+#include "../include/passcheck.h"
 
 int has_lower(const char* string)
 {
