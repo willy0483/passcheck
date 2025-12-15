@@ -60,18 +60,6 @@ int password_length(const char* string)
 int password_strength(const char* string)
 {
 
-#ifdef DEBUG
-	printf(">>> THIS IS DEBUG BUILD <<<\n");
-#endif
-
-#ifdef RELEASE
-	printf(">>> THIS IS RELEASE BUILD <<<\n");
-#endif
-
-#ifdef TESTING
-	printf(">>> THIS IS TESTING BUILD <<<\n");
-#endif
-
 	int score = 0;
 	if(password_length(string) > 8)
 	{
@@ -93,6 +81,23 @@ int password_strength(const char* string)
 	{
 		score++;
 	}
+
+#ifdef DEBUG
+	printf("Password: %s\n", string);
+	printf("Score: %d\n", score);
+#endif
+
+#ifdef TESTING
+	printf("Score: %d\n", score);
+#endif
+
+#ifdef RELEASE
+	if(score < 3)
+	{
+		printf("password is to weak");
+		return 0;
+	}
+#endif
 
 	return score;
 }
