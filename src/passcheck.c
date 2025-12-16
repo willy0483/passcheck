@@ -57,7 +57,7 @@ int password_length(const char* string)
 	return strlen(string);
 }
 
-int password_strength(const char* string)
+enum passcheck_type password_strength(const char* string)
 {
 
 	int score = 0;
@@ -82,22 +82,22 @@ int password_strength(const char* string)
 		score++;
 	}
 
-#ifdef DEBUG
-	printf("Password: %s\n", string);
-	printf("Score: %d\n", score);
-#endif
+	if(score <= 2)
+		return WEAK;
+	if(score <= 4)
+		return OK;
 
-#ifdef TESTING
-	printf("Score: %d\n", score);
-#endif
-
-#ifdef RELEASE
-	if(score < 3)
-	{
-		printf("password is to weak");
-		return 0;
-	}
-#endif
-
-	return score;
+	return STRONG;
 }
+
+#ifdef DEBUG
+
+void passcheck_debug(const char* string)
+{
+	printf("[PASSCHECK DEBUG]\n");
+	printf("Password: %s\n", string);
+	printf("Length: %d\n", password_length(string));
+	printf("lower=%d upper=%d digit=%d symbol=%d\n", has_lower(string), has_upper(string), has_digit(string), has_symbol(string));
+}
+
+#endif
