@@ -1,10 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -g
 
-default: lib app
-
 app:
-	$(CC) $(CFLAGS) src/main.c build/passcheck.a -o build/app
+	$(CC) $(CFLAGS) src/main.c src/logger.c build/passcheck.a -o build/app
 
 
 lib: 
@@ -14,4 +12,3 @@ lib:
 
 clean:
 	rm -f build/*.[a,o]
-

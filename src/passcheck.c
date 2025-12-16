@@ -89,15 +89,3 @@ enum passcheck_type password_strength(const char* string)
 
 	return STRONG;
 }
-
-#ifdef DEBUG
-
-void passcheck_debug(const char* string)
-{
-	printf("[PASSCHECK DEBUG]\n");
-	printf("Password: %s\n", string);
-	printf("Length: %d\n", password_length(string));
-	printf("lower=%d upper=%d digit=%d symbol=%d\n", has_lower(string), has_upper(string), has_digit(string), has_symbol(string));
-}
-
-#endif

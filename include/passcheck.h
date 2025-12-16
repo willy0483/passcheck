@@ -1,5 +1,5 @@
-#ifndef PASSCHECK_LIBRARY_H
-#define PASSCHECK_LIBRARY_H
+#ifndef PASSCHECK_H
+#define PASSCHECK_H
 
 #include <ctype.h>
 #include <stdio.h>
@@ -7,7 +7,7 @@
 
 enum passcheck_type
 {
-	WEAK = 0,
+	WEAK,
 	OK,
 	STRONG
 };

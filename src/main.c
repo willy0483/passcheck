@@ -1,27 +1,28 @@
 #include "../include/passcheck.h"
+#include "../include/logger.h"
 
-int main()
+int main(int argc, char* argv[])
 {
 
-	const char* tests[] = { "awdawdawd", "1234", "Verystrongpassword1234!" };
-
-	for(int i = 0; i < (sizeof(tests) / sizeof(const char*)); i++)
+	for(int i = 1; i < argc; i++)
 	{
-		printf("Testing: %s\n", tests[i]);
-		switch(password_strength(tests[i]))
+#ifdef DEBUG
+		logger("DEBUG", argv[i]);
+#endif
+		switch(password_strength(argv[i]))
 		{
 			case WEAK: {
-				printf("Result: WEAK\n");
+				printf("[Result]: WEAK\n\n");
 				break;
 			}
 
 			case OK: {
-				printf("Result: OK\n");
+				printf("[Result]: OK\n\n");
 				break;
 			}
 
 			case STRONG: {
-				printf("Result: STRONG\n");
+				printf("[Result]: STRONG\n\n");
 				break;
 			}
 		}
