@@ -4,8 +4,8 @@ a simple C library to check if your password is strong or weak
 
 # Build Dependencies
 
-GCC
-Make
+- GCC
+- Make
 
 # Build
 
