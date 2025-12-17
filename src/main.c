@@ -6,6 +6,7 @@ int main(int argc, char* argv[])
 
 	for(int i = 1; i < argc; i++)
 	{
+		logger("DEBUG", argv[i]);
 		switch(password_strength(argv[i]))
 		{
 			case WEAK: {
