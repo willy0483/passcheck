@@ -22,6 +22,13 @@ make app
 
 ```
 
+# Build Flags
+debug
+```bash
+make CFLAGS="-DDEBUG" lib app
+```
+make the logger function available
+
 # To use 
 ```bash
 
